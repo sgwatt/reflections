@@ -1,0 +1,11 @@
+QUESTION 1
+
+What happens when you initialize a repository? Why do you need to do it?
+You need to initialize so that git can see what files it needs to track. But I don't think it automatically starts tracking them. Looks liek you need to "git add" files...
+
+
+QUESTION 2
+
+How is the staging area different from the working directory and the repository? What value do you think it offers?
+It allows you to group changes logically to many file insterad of one for easier tracking...
+

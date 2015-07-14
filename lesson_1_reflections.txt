@@ -1,0 +1,79 @@
+Thoughts on version control
+Git GitHub lesson
+Used the MacOS 10 Terminal to compare files to see where they differ. Easier than doing it manually. Makes alot of sense to do it this way with large files and coding being typo city!!!!
+
+
+Here's what I typed into the terminal to compare the two *.js files:
+
+(Canopy 32bit) Steves-MBP:~ tombolo$ 
+(Canopy 32bit) Steves-MBP:~ tombolo$ cd DropBox/Udacity/Git_GitHub/
+(Canopy 32bit) Steves-MBP:Git_GitHub tombolo$ diff -u game_old.js game_new.js
+
+Here is the output:
+
+--- game_old.js	2015-07-10 14:38:32.000000000 -0700
++++ game_new.js	2015-07-10 14:38:45.000000000 -0700
+@@ -4,9 +4,9 @@
+ //
+ 
+ KEY_CODES = {
++  13: 'enter',
+   32: 'space',
+   37: 'left',
+-  38: 'up',
+   39: 'right',
+   40: 'down',
+   70: 'f',
+@@ -392,7 +392,7 @@
+       this.vel.rot = 0;
+     }
+ 
+-    if (KEY_STATUS.up) {
++    if (KEY_STATUS.spacr) {
+       var rad = ((this.rot-90) * Math.PI)/180;
+       this.acc.x = 0.5 * Math.cos(rad);
+       this.acc.y = 0.5 * Math.sin(rad);
+@@ -406,7 +406,7 @@
+     if (this.delayBeforeBullet > 0) {
+       this.delayBeforeBullet -= delta;
+     }
+-    if (KEY_STATUS.space) {
++    if (KEY_STATUS.enter) {
+       if (this.delayBeforeBullet <= 0) {
+         this.delayBeforeBullet = 10;
+         for (var i = 0; i < this.bullets.length; i++) {
+@@ -919,7 +919,7 @@
+     waiting: function () {
+       Text.renderText(ipad ? 'Touch Sreen to Start' : 'Press Space to Start', 36, Game.canvasWidth/2 - 270, Game.canvasHeight/2);
+       if (KEY_STATUS.space || window.gameStart) {
+-        KEY_STATUS.space = false; // hack so we don't shoot right away
++        KEY_STATUS.space = false; // hack so we don't move right away
+         window.gameStart = false;
+         this.state = 'start';
+       }
+       
+REFLECTION TWO:
+How could having easy access to the entire history of a file make you a more efficient programmer in the long term?
+
+HELPING YOU FIND MISTAKES AND REUSE OLD CODE...
+
+REFLECTION 3:
+
+What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs having versions automatically saved, like Google docs does?
+
+Pros: You can save the files at logical points where something critical has been done, etc. 
+
+Cons: You may forget, your computer may crash etc.
+
+REFLECTION 4:
+Why do you think some version control systems, like Git, allow saving multiple files in one commit, while others, like Google Docs, treat each file separately?
+
+Cuase Git is made for coding and is more robust
+
+REFLECTION 5:
+How can you use the commands git log and git diff to view the history of files?
+By cd'ing to a directory with a git repository and looking at the git log finding a commit ID and then git diffing it with another file (usually the one committed previously)
+
+REFLECTION 6:
+How might using version control make you more confident to make changes that could break something?
+More confident becuase you know you can go back and find the problem relatively easily
